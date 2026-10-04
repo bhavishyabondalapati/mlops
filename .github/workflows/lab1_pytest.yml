@@ -1,6 +1,7 @@
 name: Lab 1 - Testing with Pytest
 
 on:
+  workflow_dispatch:
   push:
     branches: [main]
     paths: ["lab1/**", ".github/workflows/lab1_pytest.yml"]
