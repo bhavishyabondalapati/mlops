@@ -1,0 +1,13 @@
+# virtual environments
+lab_01/
+venv/
+.venv/
+
+# Python cache / test output
+__pycache__/
+*.pyc
+.pytest_cache/
+pytest-report.xml
+
+# OS junk
+.DS_Store
