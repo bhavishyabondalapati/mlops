@@ -1,28 +1,22 @@
 #!/usr/bin/env bash
-# Runs the whole lab in one go. From inside the lab2 folder:
+# Sets up the environment, runs the tests, then runs the pipeline.
 #   bash run_lab.sh
 set -e
 cd "$(dirname "$0")"
 
-echo "== 1. Environment =="
-python3 -m venv lab_02
+if [ ! -d lab_02 ]; then
+  python3 -m venv lab_02
+fi
 source lab_02/bin/activate
 pip install -q -r requirements.txt
 
-echo "== 2. Unit tests =="
+echo "== Tests =="
 python -m pytest -q tests
 
-echo "== 3. Run the Beam pipeline =="
+echo "== Pipeline =="
 python src/pipeline.py --input data/claims.csv --output_dir outputs --threshold 1.0
 
-echo "== 4. Results =="
+echo "== Summary =="
 cat outputs/summary.txt
 echo
-echo "High-risk clients:"
-cat outputs/high_risk_clients.csv
-
-echo "== 5. Push to GitHub =="
-git add .
-git commit -m "Lab 2: Apache Beam claims data pipeline"
-git push origin main
-echo "Done! Submit: https://github.com/bhavishyabondalapati/mlops/tree/main/lab2"
+echo "== Done! Check the outputs/ folder. =="

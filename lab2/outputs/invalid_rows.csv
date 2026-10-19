@@ -1,8 +1,8 @@
 client_id,month,members,premium,claims_paid,reason
+C004,2025-01,389,250596.18,,missing claims_paid
 C001,2025-10,60,31899.81,,missing claims_paid
 C019,2025-03,138,77934.58,,missing claims_paid
-C004,2025-01,389,250596.18,,missing claims_paid
 C009,2025-06,402,175724.71,,missing claims_paid
-C007,2025-02,500,205611.88,,missing claims_paid
 C010,2025-04,78,43620.01,,missing claims_paid
 C010,2025-06,79,44179.24,,missing claims_paid
+C007,2025-02,500,205611.88,,missing claims_paid

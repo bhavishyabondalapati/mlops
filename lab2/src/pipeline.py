@@ -1,15 +1,6 @@
-"""Apache Beam pipeline: clean health claims data and compute MLR per client.
+"""Beam pipeline: clean the claims data and compute MLR per client.
 
-Steps
-  1. Read the CSV and drop exact duplicate rows        (ReadFromText, Distinct)
-  2. Parse rows; send bad rows to a separate output    (ParDo + TaggedOutput)
-  3. Sum premium and claims per client                 (CombinePerKey + custom CombineFn)
-  4. Compute each client's MLR and flag high-risk ones (MapTuple, Filter)
-  5. Sum claims per month                              (CombinePerKey(sum))
-  6. Build a run summary                               (Count, CombineGlobally, side inputs)
-  7. Write every result to outputs/                    (WriteToText)
-
-Runs locally with the DirectRunner:
+Run locally:
     python src/pipeline.py --input data/claims.csv --output_dir outputs --threshold 1.0
 """
 import argparse
@@ -63,7 +54,7 @@ def make_summary(_, valid, invalid, clients, high_risk, totals):
         f"high_risk_clients={high_risk}",
         f"total_premium={premium:.2f}",
         f"total_claims={claims:.2f}",
-        f"overall_mlr={mlr(premium, claims)}",
+        f"overall_mlr={round(mlr(premium, claims), 4)}",
     ])
 
 
@@ -113,7 +104,7 @@ def run(argv=None):
             | "Format months" >> beam.MapTuple(lambda m, c: f"{m},{c:.2f}")
         )
 
-        # Run summary, built from single values passed in as side inputs
+        # Summary: each count is a single value, passed in as a side input
         overall = (
             valid
             | "Premium and claims" >> beam.Map(lambda r: (r["premium"], r["claims_paid"]))
