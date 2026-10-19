@@ -74,3 +74,5 @@ From my run (threshold 1.0):
 | Clients | 20 |
 | Clients with MLR above 1.0 | 11 |
 | Overall MLR | 0.952 |
+
+When I looked at the high-risk clients, most had 12 months of data, but C010 only had 10 and C001, C009 and C019 had 11. Checking invalid_rows.csv, those were exactly the months with a missing claims value (C010 lost April and June 2025). So for those clients the MLR is based on fewer months, which makes it a bit less reliable. In a real system I'd want to flag clients with missing months instead of just reporting their MLR like everyone else's.
