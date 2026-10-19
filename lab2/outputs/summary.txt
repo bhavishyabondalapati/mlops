@@ -1,0 +1,7 @@
+valid_rows=233
+invalid_rows=7
+clients=20
+high_risk_clients=11
+total_premium=29246303.26
+total_claims=27843618.02
+overall_mlr=0.952
