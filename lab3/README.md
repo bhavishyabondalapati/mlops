@@ -65,3 +65,9 @@ I expected the random forest to win because the data has non-linear parts, but t
 ## A problem I ran into
 
 The first time I ran it, the ElasticNet runs logged fine but the random forest crashed at `log_model`. Newer MLflow versions save scikit-learn models with skops, which refuses to save tree objects (`sklearn.tree._tree.Tree`) unless you mark them as trusted, because a tampered tree file could crash the program when loaded. Since I trained the model myself, I pass `skops_trusted_types=["sklearn.tree._tree.Tree"]` for the random forest runs only.
+
+## MLflow UI
+
+The 8 runs in the MLflow UI. The best run has the registered `ClaimsCostModel v1` next to it:
+
+![MLflow runs](images/mlflow_runs.png)
