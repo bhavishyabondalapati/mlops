@@ -1,0 +1,9 @@
+run_name,model_family,rmse,mae,r2,run_id
+elasticnet_a0.1_l10.8,elasticnet,75.04,58.82,0.8195,e044e0394b26406b8ba30c6843008de5
+elasticnet_a0.1_l10.2,elasticnet,75.75,59.13,0.8161,282b5fa7d2bc43ad93531a9d5487f549
+elasticnet_a0.5_l10.8,elasticnet,76.31,59.47,0.8133,61652c668ffc45b29c8827c70f33bb1d
+random_forest_depth8,random_forest,76.67,60.99,0.8116,185be16fe3f14a0f8cf1bae91547fa8a
+elasticnet_a1.0_l10.8,elasticnet,79.5,61.49,0.7974,8d576887caf2480cbc52d4578394be1c
+elasticnet_a0.5_l10.2,elasticnet,86.53,66.52,0.76,eeadf83b82e645d0bcb3164f59ffb6a1
+random_forest_depth4,random_forest,94.24,75.9,0.7153,ab7c3a13bf3348168c1b103085d43cc9
+elasticnet_a1.0_l10.2,elasticnet,101.14,78.26,0.6721,b9929ac4a8c34c62aa61fc4f6510e9f6
