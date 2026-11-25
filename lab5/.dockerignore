@@ -1,0 +1,10 @@
+lab_04/
+lab_05/
+.venv/
+model/
+results/
+images/
+__pycache__/
+.pytest_cache/
+*.tar
+.git

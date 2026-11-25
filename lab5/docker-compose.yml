@@ -1,0 +1,8 @@
+services:
+  api:
+    build: .
+    image: claims-risk-api:1.0
+    container_name: claims-risk-api
+    ports:
+      - "8001:8000"
+    restart: unless-stopped

@@ -1,0 +1,10 @@
+Image: claims-risk-api:1.0  size 740MB
+
+GET /health
+{"status":"healthy","model_loaded":true}
+
+POST /predict (high-risk example group)
+{"risk_tier":"high","probabilities":{"high":0.995,"low":0.0,"medium":0.005},"model_version":"1.0"}
+
+POST /predict with avg_age=150 (should be rejected with 422)
+status 422

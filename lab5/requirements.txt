@@ -1,0 +1,7 @@
+# Pinned, because the model is trained in one stage and loaded in another:
+# scikit-learn must be the exact same version in both or the saved model may not load.
+fastapi==0.115.0
+uvicorn==0.30.6
+scikit-learn==1.5.2
+pandas==2.2.3
+joblib==1.4.2
